@@ -4,6 +4,7 @@
   "description": "DeepSeek Harness 插件：中文版 Superpowers 技能包，20 个中文 AI 编程 skills（移植自 superpowers-zh）",
   "type": "module",
   "main": "index.js",
+  "types": "index.d.ts",
   "bin": {
     "superpowers-zh": "bin/superpowers-zh.js"
   },
@@ -34,6 +35,7 @@
     "README.md",
     "LICENSE",
     "index.js",
+    "index.d.ts",
     "cordis.patch.yml",
     "THIRD_PARTY_NOTICES.md",
     "test/"

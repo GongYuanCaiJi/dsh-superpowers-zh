@@ -1,38 +1,38 @@
 # THIRD_PARTY_NOTICES
 
 本套件（`dsh-superpowers-zh`）是 npm 套件 **`superpowers-zh`** 的移植（port），
-上游授權 **MIT**。逐字保留的宣稱以本檔釘死的雜湊為準，任何人可自行驗證。
+上游授权 **MIT**。逐字保留的宣称以本档钉死的杂凑为准，任何人可自行验证。
 
 ## 上游
 
-| 欄位 | 值 |
+| 栏位 | 值 |
 |---|---|
 | 套件 | `superpowers-zh` |
-| 版本（釘死） | `1.7.10` |
-| 發布時間 | `2026-08-12T11:07:24.991Z` |
-| 授權 | MIT（Copyright (c) 2026 jnMetaCode） |
+| 版本（钉死） | `1.7.10` |
+| 发布时间 | `2026-08-12T11:07:24.991Z` |
+| 授权 | MIT（Copyright (c) 2026 jnMetaCode） |
 | 上游 repo | <https://github.com/jnMetaCode/superpowers-zh> |
 | tarball | <https://registry.npmjs.org/superpowers-zh/-/superpowers-zh-1.7.10.tgz> |
 | dist.integrity | `sha512-ljI1CMQm1t4Snu2viy6iQVz8SKKKjhDG0p2hrXLts+TCRrL4mETalI7xig+qfM45bz6RL9KNq4CS9HLO8heX6g==` |
 | dist.shasum | `5eb94074766c6e90d74dc81f334f115a03584e1e` |
 | gitHead | `d83d3f9dc20218e576df09df7c68cfea62df7353` |
 
-## 移植說明
+## 移植说明
 
-- 上游 npm tarball（`package/` 內）的 109 個檔案全數搬入本 repo，其中
-  **107 檔逐字未改**（下表）；兩個檔案依移植需求改寫、不屬逐字範圍：
-  - `package.json` —— dsh 插件合約（`dsh.bundle.patch`、`main`、scripts 增刪、
-    description、repository 等），每項改動理由見 #21 交付回報；
-  - `LICENSE` —— MIT 全文與上游 copyright 行逐字保留，另加移植者行
-    `Copyright (c) 2026 GongYuanCaiJi (dsh port)`（playbook B2 / A 報告）。
-- 唯一路徑變更：上游 `README.md` → `docs/UPSTREAM-README.md`（內容一字未改，
-  在逐字表內；repo 門面的 `README.md` 是移植版自己的雙語說明，非上游檔案的改寫）。
-- 本 repo 新增（非上游）檔案：`README.md`、`THIRD_PARTY_NOTICES.md`、
+- 上游 npm tarball（`package/` 内）的 109 个档案全数搬入本 repo，其中
+  **107 档逐字未改**（下表）；两个档案依移植需求改写、不属逐字范围：
+  - `package.json` —— dsh 插件合约（`dsh.bundle.patch`、`main`、scripts 增删、
+    description、repository 等），每项改动理由见 #21 交付回报；
+  - `LICENSE` —— MIT 全文与上游 copyright 行逐字保留，另加移植者行
+    `Copyright (c) 2026 GongYuanCaiJi (dsh port)`（playbook B2 / A 报告）。
+- 唯一路径变更：上游 `README.md` → `docs/UPSTREAM-README.md`（内容一字未改，
+  在逐字表内；repo 门面的 `README.md` 是移植版自己的双语说明，非上游档案的改写）。
+- 本 repo 新增（非上游）档案：`README.md`、`THIRD_PARTY_NOTICES.md`、
   `index.js`、`cordis.patch.yml`、`test/`。
-- 逐字檔案的 SHA-256 與 `test/fixtures/verbatim.sha256.json` 相同
-  （`test/verbatim.test.js` 自動核對兩者）。
+- 逐字档案的 SHA-256 与 `test/fixtures/verbatim.sha256.json` 相同
+  （`test/verbatim.test.js` 自动核对两者）。
 
-## 逐字檔案 SHA-256（107 檔）
+## 逐字档案 SHA-256（107 档）
 
 | `.claude-plugin/marketplace.json` | `5927be27df1a0ccc6acdd3e55abb40d53330c7aa089c0c3e783f746bcc1990ae` |
 | `.claude-plugin/plugin.json` | `fb05531c95566cd3f91df93c90b15adaf8ee535392540604d26f450d37d97267` |
@@ -142,20 +142,20 @@
 | `skills/writing-skills/render-graphs.js` | `ccda971a87bb185f8febf81c56b556a20d026fa980c17b35fa3e8824fbb37852` |
 | `skills/writing-skills/testing-skills-with-subagents.md` | `e19de39a5f13ed7c99f4f63c5745142e74dcf7f8fc27b022c4e0c27d95945efc` |
 
-## 自行驗證
+## 自行验证
 
 ```bash
-# 用 npm 官方 tarball 重算並比對（逐字範圍 = 上游 package/ 內容）
+# 用 npm 官方 tarball 重算并比对（逐字范围 = 上游 package/ 内容）
 npm pack superpowers-zh@1.7.10   # 得到 superpowers-zh-1.7.10.tgz
 mkdir -p /tmp/spz && tar xzf superpowers-zh-1.7.10.tgz -C /tmp/spz
-# 每個檔案逐字比對（README.md 對應 docs/UPSTREAM-README.md）
+# 每个档案逐字比对（README.md 对应 docs/UPSTREAM-README.md）
 diff -r /tmp/spz/package/skills skills && echo skills-OK
 cmp /tmp/spz/package/README.md docs/UPSTREAM-README.md && echo readme-OK
-# SHA-256 對表
-shasum -a 256 skills/*/SKILL.md   # 與上表比對
+# SHA-256 对表
+shasum -a 256 skills/*/SKILL.md   # 与上表比对
 ```
 
-## 授權
+## 授权
 
-上游 MIT LICENSE 保留於本 repo 的 `LICENSE`（上游 copyright 行逐字 + 移植者
-角色行）。本 NOTICES 檔的內容不構成額外授權限制。
+上游 MIT LICENSE 保留于本 repo 的 `LICENSE`（上游 copyright 行逐字 + 移植者
+角色行）。本 NOTICES 档的内容不构成额外授权限制。

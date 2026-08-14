@@ -4,16 +4,16 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// 結構測試：github:/本地安裝後「可 boot」的最低保證。
-// 被 package.json 的 prepare 在每次 install 時執行，因此只做零依賴的檔案檢查，
-// 且必須在任何合法安裝狀態下通過（這裡驗的是形狀，不是上游逐字內容）。
+// 结构测试：github:/本地安装后「可 boot」的最低保证。
+// 被 package.json 的 prepare 在每次 install 时执行，因此只做零依赖的档案检查，
+// 且必须在任何合法安装状态下通过（这里验的是形状，不是上游逐字内容）。
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
-test('套件形狀: skills/ 有 20 個目錄且各含 SKILL.md', () => {
+test('套件形状: skills/ 有 20 个目录且各含 SKILL.md', () => {
   const skillsDir = join(ROOT, 'skills');
   assert.ok(existsSync(skillsDir), 'skills/ 存在');
   const dirs = readdirSync(skillsDir, { withFileTypes: true }).filter((e) => e.isDirectory());
-  assert.equal(dirs.length, 20, '20 個 skill 目錄');
+  assert.equal(dirs.length, 20, '20 个 skill 目录');
   for (const d of dirs) {
     assert.ok(
       existsSync(join(skillsDir, d.name, 'SKILL.md')),
@@ -22,7 +22,7 @@ test('套件形狀: skills/ 有 20 個目錄且各含 SKILL.md', () => {
   }
 });
 
-test('套件形狀: 必要檔案都在（boot 所需）', () => {
+test('套件形状: 必要档案都在（boot 所需）', () => {
   for (const f of ['package.json', 'index.js', 'cordis.patch.yml', 'LICENSE']) {
     assert.ok(existsSync(join(ROOT, f)), `${f} 存在`);
   }

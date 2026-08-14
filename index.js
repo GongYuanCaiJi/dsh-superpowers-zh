@@ -1,11 +1,11 @@
 // dsh-superpowers-zh — cordis 插件入口。
 //
-// 職責只有一個：把本套件 skills/ 目錄下的 20 個 SKILL.md 註冊進 dsh 的
+// 职责只有一个：把本套件 skills/ 目录下的 20 个 SKILL.md 注册进 dsh 的
 // skills registry（ctx.skills.registerProvider，runtime provider）。
-// 註冊形狀照 dsh-lens（已發布、同機制的真實插件）的 dist/skills.js。
+// 注册形状照 dsh-lens（已发布、同机制的真实插件）的 dist/skills.js。
 //
-// skills/ 本身是上游 superpowers-zh@1.7.10 的逐字複製，這裡不碰內容；
-// 逐字保真由 test/verbatim.test.js 對 test/fixtures/verbatim.sha256.json 驗證。
+// skills/ 本身是上游 superpowers-zh@1.7.10 的逐字复制，这里不碰内容；
+// 逐字保真由 test/verbatim.test.js 对 test/fixtures/verbatim.sha256.json 验证。
 
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -19,9 +19,9 @@ const INVOCATION = { modelInvocable: true, userInvocable: true };
 const DEFAULT_ROOT = fileURLToPath(new URL('./skills/', import.meta.url));
 
 /**
- * 列出 skills/ 下每個含 SKILL.md 的目錄，轉成 dsh skill registry 的候選。
- * 只掃一層（與 dsh 的檔案系統 loader 同深度規則）。
- * @param root - skills 根目錄（測試可注入自訂 fixture 根）
+ * 列出 skills/ 下每个含 SKILL.md 的目录，转成 dsh skill registry 的候选。
+ * 只扫一层（与 dsh 的档案系统 loader 同深度规则）。
+ * @param root - skills 根目录（测试可注入自订 fixture 根）
  */
 export function listBundledSkills(root = DEFAULT_ROOT) {
   if (!existsSync(root)) return [];
@@ -46,7 +46,7 @@ export function listBundledSkills(root = DEFAULT_ROOT) {
   return skills;
 }
 
-/** 從 SKILL.md 的 YAML frontmatter 抽出 name / description（純解析，不做 fallback）。 */
+/** 从 SKILL.md 的 YAML frontmatter 抽出 name / description（纯解析，不做 fallback）。 */
 export function parseFrontmatter(markdown) {
   const match = /^---\n([\s\S]*?)\n---/u.exec(markdown);
   if (!match) return {};
@@ -58,7 +58,7 @@ export function parseFrontmatter(markdown) {
   return { name: field('name'), description: field('description') };
 }
 
-/** frontmatter 之後的第一段非空、非標題文字（description 缺漏時的 fallback）。 */
+/** frontmatter 之后的第一段非空、非标题文字（description 缺漏时的 fallback）。 */
 function firstParagraph(markdown) {
   const body = markdown.replace(/^---[\s\S]*?---\n?/u, '');
   return body
@@ -67,7 +67,7 @@ function firstParagraph(markdown) {
     .find((line) => line && !line.startsWith('#'));
 }
 
-/** 註冊 provider 進 dsh skills registry；ctx.inject 拿不到 skills 就不註冊。 */
+/** 注册 provider 进 dsh skills registry；ctx.inject 拿不到 skills 就不注册。 */
 export function registerSuperpowersSkills(ctx) {
   ctx.inject(['skills'], (skillCtx) => {
     const candidates = listBundledSkills();
