@@ -1,0 +1,105 @@
+{
+  "name": "dsh-superpowers-zh",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 插件：中文版 Superpowers 技能包，20 个中文 AI 编程 skills（移植自 superpowers-zh）",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "superpowers-zh": "bin/superpowers-zh.js"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "prepare": "node --test test/structure.test.js",
+    "prepack": "node --test test/verbatim.test.js",
+    "prepublishOnly": "npm test"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "hooks/",
+    "assets/",
+    ".claude-plugin/",
+    ".cursor-plugin/",
+    ".codex/INSTALL.md",
+    ".codex-plugin/",
+    ".opencode/INSTALL.md",
+    ".opencode/plugins/",
+    ".pi/extensions/",
+    "CLAUDE.md",
+    "GEMINI.md",
+    "RELEASE-NOTES.md",
+    "RELEASE-NOTES.zh.md",
+    "gemini-extension.json",
+    "docs/",
+    "README.md",
+    "LICENSE",
+    "index.js",
+    "cordis.patch.yml",
+    "THIRD_PARTY_NOTICES.md",
+    "test/"
+  ],
+  "dependencies": {
+    "@deepseek-ai/dsh-skill": "0.1.0-rc.6"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "superpowers",
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "claude-code",
+    "cursor",
+    "codex",
+    "gemini",
+    "kiro",
+    "deerflow",
+    "trae",
+    "antigravity",
+    "openclaw",
+    "windsurf",
+    "aider",
+    "opencode",
+    "qwen",
+    "vscode",
+    "copilot",
+    "hermes",
+    "hermes-agent",
+    "claw-code",
+    "qoder",
+    "codebuddy",
+    "codearts",
+    "ai-coding",
+    "skills",
+    "chinese",
+    "中文",
+    "tdd",
+    "debugging",
+    "code-review",
+    "pi-package"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ],
+    "extensions": [
+      "./.pi/extensions/superpowers.ts"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GongYuanCaiJi/dsh-superpowers-zh.git"
+  },
+  "homepage": "https://github.com/GongYuanCaiJi/dsh-superpowers-zh",
+  "bugs": {
+    "url": "https://github.com/GongYuanCaiJi/dsh-superpowers-zh/issues"
+  },
+  "author": "GongYuanCaiJi",
+  "license": "MIT"
+}
