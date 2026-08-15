@@ -26,6 +26,11 @@ test('README: 两段都有安装指令（github: + 本地路径），无裸名',
   assert.ok(en.includes('allowBuilds'), '英文段有 allowBuilds 提示');
   assert.ok(cn.includes('git clone https://github.com/GongYuanCaiJi/dsh-superpowers-zh.git'), '中文段有本地路径');
   assert.ok(en.includes('git clone https://github.com/GongYuanCaiJi/dsh-superpowers-zh.git'), '英文段有本地路径');
+  // 本地安装必须在 clone 目录内用 `add .`（playbook 新条目 1：cd 之后的相对路径基准会失效，
+  // dsh 对不存在的目录只打一句 WARN、exit 0，bundle 不启动 —— 中过两次）
+  assert.ok(cn.includes('add .'), '中文段本地安装用 add .（cd 之后）');
+  assert.ok(en.includes('add .'), '英文段本地安装用 add .（cd 之后）');
+  assert.equal(readme.includes('/path/to'), false, '无 /path/to 占位路径');
 });
 
 test('README: attribution 与回连（A 报告：措辞 port/移植、回连 ≥2、上游连结指套件本体）', () => {

@@ -53,7 +53,7 @@ dsh plugin --profile <你的 profile> add github:GongYuanCaiJi/dsh-superpowers-z
 ```bash
 git clone https://github.com/GongYuanCaiJi/dsh-superpowers-zh.git
 cd dsh-superpowers-zh && npm install
-dsh plugin --profile <你的 profile> add /path/to/dsh-superpowers-zh
+dsh plugin --profile <你的 profile> add .
 ```
 
 ## 🚀 使用
@@ -146,7 +146,7 @@ From a local checkout:
 ```bash
 git clone https://github.com/GongYuanCaiJi/dsh-superpowers-zh.git
 cd dsh-superpowers-zh && npm install
-dsh plugin --profile <your-profile> add /path/to/dsh-superpowers-zh
+dsh plugin --profile <your-profile> add .
 ```
 
 ## 🚀 Usage
