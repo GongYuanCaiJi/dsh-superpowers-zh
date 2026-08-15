@@ -22,13 +22,14 @@
 - 上游 npm tarball（`package/` 内）的 109 个档案全数搬入本 repo，其中
   **107 档逐字未改**（下表）；两个档案依移植需求改写、不属逐字范围：
   - `package.json` —— dsh 插件合约（`dsh.bundle.patch`、`main`、scripts 增删、
-    description、repository 等），每项改动理由见 #21 交付回报；
+    description、repository 等），每项改动理由见 README「本移植版与上游的差异」；
   - `LICENSE` —— MIT 全文与上游 copyright 行逐字保留，另加移植者行
     `Copyright (c) 2026 GongYuanCaiJi (dsh port)`（playbook B2 / A 报告）。
 - 唯一路径变更：上游 `README.md` → `docs/UPSTREAM-README.md`（内容一字未改，
   在逐字表内；repo 门面的 `README.md` 是移植版自己的双语说明，非上游档案的改写）。
 - 本 repo 新增（非上游）档案：`README.md`、`THIRD_PARTY_NOTICES.md`、
-  `index.js`、`cordis.patch.yml`、`test/`。
+  `index.js`、`index.d.ts`、`cordis.patch.yml`、`test/`、`.gitignore`、
+  `package-lock.json`。
 - 逐字档案的 SHA-256 与 `test/fixtures/verbatim.sha256.json` 相同
   （`test/verbatim.test.js` 自动核对两者）。
 

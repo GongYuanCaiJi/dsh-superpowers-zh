@@ -102,7 +102,7 @@ MIT。上游版权归 [jnMetaCode](https://github.com/jnMetaCode)（superpowers-
 
 # dsh-superpowers-zh
 
-[简体中文](#简体中文) | English
+[简体中文](#-dsh-superpowers-zh) | English
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![DSH](https://img.shields.io/badge/DSH-DeepSeek%20Harness-blue.svg)](https://github.com/deepseek-ai/deepseek-harness)
